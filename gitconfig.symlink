@@ -13,7 +13,7 @@
 	default = simple
 [core]
 	editor = vim
-	excludesfile = /home/zwhaley/.gitignore
+	excludesfile = /users/zwhaley/.gitignore
 [alias]
 	st = status
 	lg = log --oneline --graph --decorate=short
