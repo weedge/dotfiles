@@ -1,0 +1,81 @@
+autoload -Uz promptinit
+promptinit
+autoload -Uz compinit
+compinit
+autoload -Uz colors
+colors
+autoload -Uz select-word-style
+select-word-style bash
+autoload -Uz vcs_info
+
+setopt prompt_subst
+setopt histignorealldups sharehistory
+
+if [[ -a ~/.localrc ]]; then
+  source ~/.localrc
+fi
+
+bindkey -e
+
+alias rm="rm -I"
+alias cp="cp -i"
+alias fcp="cp -f"
+alias mv="mv -i"
+
+alias ls='ls --group-directories-first --color=auto -FG'
+alias l='ls'
+alias ll='ls -lh'
+alias la='ls -A'
+alias lla='ll -A'
+
+alias grep='grep --exclude="*tags" --exclude="*cscope.*" --color -I'
+
+precmd() { vcs_info }
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:(git)*' formats '%F{blue}%s%f:%F{green}%b '
+
+local success_prompt=%F{blue}❱%F{cyan}❱%F{green}❱%f
+local failure_prompt=%F{blue}❱%F{magenta}❱%F{red}❱%f
+
+export PROMPT='%F{blue}❮ %F{cyan}%m %~%F{blue} ${vcs_info_msg_0_}%F{blue}❯
+%(?.${success_prompt}.${failure_prompt}) '
+
+# Use caching to make completion for some commands faster
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
+
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+unsetopt CASE_GLOB
+
+# Group matches and describe
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
+# Fuzzy match mistyped completions
+zstyle ':completion:*' completer _complete _correct _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# Increase the number of errors based on the length of the type word.
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX/3)))numeric)'
+
+# Prevent CVS files/directories from being completed
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+
+# Remove trailing slash from directories
+zstyle ':completion:*' squeeze-slashes true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
