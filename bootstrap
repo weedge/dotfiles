@@ -110,7 +110,7 @@ install_dotfiles () {
 setup_zsh () {
     info 'switching to Zsh'
 
-    if [[ ! "$(getent passwd $LOGNAME | cut -d: -f7)" =~ "*.zsh" ]]
+    if ! [[ "$(getent passwd $LOGNAME | cut -d: -f7)" =~ ".*zsh" ]]
     then
         chsh -s $(which zsh)
     fi
