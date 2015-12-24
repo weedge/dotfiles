@@ -17,6 +17,7 @@ fi
 
 bindkey -e
 
+# Aliases
 alias rm="rm -I"
 alias cp="cp -i"
 alias fcp="cp -f"
@@ -30,6 +31,11 @@ alias lla='ll -A'
 
 alias grep='grep --exclude="*tags" --exclude="*cscope.*" --color -I'
 
+# Exports
+export P4CONFIG=.p4config
+export P4IGNORE=.p4ignore
+
+# Prompt
 precmd() { vcs_info }
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:(git)*' formats '%F{blue}%s%f:%F{green}%b '
