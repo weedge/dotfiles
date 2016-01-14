@@ -20,7 +20,7 @@ bindkey -e
 # Aliases
 alias rm="rm -I"
 alias cp="cp -i"
-alias fcp="cp -f"
+alias fcp="/bin/cp -f"
 alias mv="mv -i"
 
 alias ls='ls --group-directories-first --color=auto -FG'
@@ -38,12 +38,12 @@ export P4IGNORE=.p4ignore
 # Prompt
 precmd() { vcs_info }
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:(git)*' formats '%F{blue}%s%f:%F{green}%b '
+zstyle ':vcs_info:(git)*' formats '%F{green}%b '
 
 local success_prompt=%F{blue}❱%F{cyan}❱%F{green}❱%f
 local failure_prompt=%F{blue}❱%F{magenta}❱%F{red}❱%f
 
-export PROMPT='%F{blue}❮ %F{cyan}%m %~%F{blue} ${vcs_info_msg_0_}%F{blue}❯
+export PROMPT='%F{blue}❮ %F{cyan}%m %F{yellow}%~ ${vcs_info_msg_0_}%F{blue}❯
 %(?.${success_prompt}.${failure_prompt}) '
 
 # Use caching to make completion for some commands faster
