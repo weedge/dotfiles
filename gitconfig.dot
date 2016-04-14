@@ -18,10 +18,12 @@
 	br = branch
 	st = status
 	ci = commit
-	lg = log --oneline --graph --decorate=short
-	unstage = reset HEAD --
+	sh = show
+	di = diff
+	sd = diff --staged
+	lg = log --oneline --graph --decorate
+	unstage = reset HEAD
 	last = log -1 HEAD
-	dif = diff
 	sync = !git fetch upstream && git merge upstream/master
 	apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
 [rebase]
