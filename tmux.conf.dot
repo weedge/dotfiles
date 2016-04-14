@@ -46,7 +46,6 @@ set -g status-utf8 on
 set -g status-interval 1
 set -g status-left-length 20
 set -g status-left '#[fg=yellow][tmux] #[fg=green]#S#[default] '
-set -g status-right '#[fg=blue]#h'
 
 #### COLOR (Solarized dark)
 
