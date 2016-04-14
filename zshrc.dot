@@ -15,6 +15,9 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
+# BP4O
+[ -f ~/.local/share/bp4o/init.zsh ] && source ~/.local/share/bp4o/init.zsh
+
 bindkey -e
 
 # Aliases
