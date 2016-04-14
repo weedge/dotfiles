@@ -14,14 +14,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'zachwhaley/auto-pairs'
 Plug 'zachwhaley/vim-snippets'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'mhinz/vim-signify'
-Plug 'vim-scripts/perforce.vim'
+Plug 'nfvs/vim-perforce'
 
 call plug#end()
 
