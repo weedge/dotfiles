@@ -53,13 +53,6 @@ set background=dark
 colorscheme solarized
 highlight SignColumn ctermbg=8
 
-"" GVim
-set guifont=Inconsolata\ Medium\ 14
-"remove menu bar
-set guioptions-=m
-"remove toolbar
-set guioptions-=T
-
 set splitright
 set splitbelow
 
