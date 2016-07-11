@@ -6,6 +6,9 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
+
+cvsdiff() { cvs -Q diff -u 2>/dev/null | colordiff | $PAGER }
+
 #
 # Language
 #
