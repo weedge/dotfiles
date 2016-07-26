@@ -33,6 +33,7 @@ alias la='ls -A'
 alias lla='ll -A'
 
 alias grep='grep --exclude="*tags" --exclude="*cscope.*" --color -I'
+alias tm='tmux'
 
 # Exports
 export P4CONFIG=.p4config
