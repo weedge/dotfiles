@@ -165,5 +165,5 @@ vnoremap <C-e> $
 
 " open nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
-" Ctrl F9 to recreate tags
-nmap <C-F9> :! mktags ~/ims
+" Open TagList
+nnoremap <C-m> :TlistToggle<CR>
