@@ -37,7 +37,7 @@ alias tm='tmux'
 
 # Exports
 export P4CONFIG=.p4config
-export P4IGNORE=.p4ignore
+export P4IGNORE=".p4ignore;$HOME/.p4ignore"
 
 # Prompt
 precmd() { vcs_info }
