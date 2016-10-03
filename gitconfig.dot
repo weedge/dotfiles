@@ -18,6 +18,7 @@
 	br = branch
 	st = status
 	ci = commit
+	cp = cherry-pick
 	sh = show
 	di = diff
 	sd = diff --staged
