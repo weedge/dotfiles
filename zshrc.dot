@@ -15,7 +15,7 @@ if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
 
-fpath=( ~/.local/share/zsh/functions $fpath )
+fpath=( ~/.local/share/zsh/functions /usr/share/zsh/site-functions $fpath )
 autoload -Uz bp4o
 bp4o
 
