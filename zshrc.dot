@@ -15,8 +15,9 @@ if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
 
-# BP4O
-[ -f ~/.local/share/bp4o/init.zsh ] && source ~/.local/share/bp4o/init.zsh
+fpath=( ~/.local/share/zsh/functions $fpath )
+autoload -Uz bp4o
+bp4o
 
 bindkey -e
 
